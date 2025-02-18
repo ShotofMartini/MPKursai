@@ -1,0 +1,26 @@
+1. Sukurk HTML struktūrą
+
+Atidaryk kodų redaktorių.
+Sukurk naują failą index.html.
+Įrašyk pagrindinius HTML elementus:
+
+- Įvedimo lauką (<input>),
+- Mygtuką (<button>),
+- Sąrašą (<ul>) užduotims rodyti.
+Pridėk index.html faile nuorodas į styles.css ir script.js.
+
+2. Pridėk stilius (CSS)
+Sukurk styles.css failą.
+Parašyk pagrindinius stilius, kad puslapis atrodytų tvarkingai:
+
+- Centruok turinį.
+- Padaryk mygtukus ir input'ą estetiškus.
+- Sukurk užduočių sąrašo (<ul> ir <li>) dizainą.
+
+3. Parašyk pagrindinį JavaScript kodą:
+Sukurk script.js failą.
+Parašyk funkciją addTask(), kuri:
+- Paims tekstą iš input'o.
+- Sukurs naują <li> elementą.
+- Įdės naują <li> į <ul>.
+- Išvalys įvesties lauką po pridėjimo
