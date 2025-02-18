@@ -4,9 +4,8 @@ var toDoEntryBox = document.getElementById("task");
 var toDoList = document.getElementById("todo-list");
 function addTask() {
     /*alert("Add button clicked!");*/
-    var itemText = toDoEntryBox.value;
+    const itemText = toDoEntryBox.value;
     newToDoItem(itemText);
-    toDoList.appendChild(toDoItem);
 }
 function newToDoItem(itemText) {
     var toDoItem = document.createElement("li");
