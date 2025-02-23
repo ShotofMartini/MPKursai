@@ -62,12 +62,29 @@ input {
   }
 .to-do {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.to-do {
-    width: 80%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: rgb(182, 170, 154);
     border-radius: 1ch;
+    margin: 20px;
+}
+.buttonInList {
+    border-color: rgb(0, 0, 0) 1px;
+    background-color: #e2b9acde;
+    color: #000000;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    text-align: right;
+}
+.button:hover {
+    background: #be9d92de;
+}
+.buttonInList:hover {
+    background: #be9d92de;
+}
+.toDoItem {
+    display: flex;
+    justify-content: space-between; /* Push text left, buttons right */
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
 }

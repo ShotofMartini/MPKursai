@@ -11,13 +11,15 @@
     <div class="menu">
         <h1>My Super Program</h1>
         <p>
-            <form id="form" name="form" onsubmit="validateForm()">
-                <label for="task">Add new Task</label>
-                <br>
-                <input type="text" placeholder="Task" id="task" name="task">
-                <button type="button" class="button" id="add-button"><span>Add</span></button>
-            </form>
+          <label for="task">Add new Task</label>
+          <br>
+          <input type="text" placeholder="Task" id="task" name="task">
+          <button type="button" class="button" id="add-button"><span>Add to list</span></button>
+          <button type="button" class="button" id="save-button"><span>Save list</span></button>
+          <button type="button" class="button" id="empty-button"><span>Empty list</span></button>
             <h2>TO DO</h2>
+            <!--<button type="button" class="itemButton" id="checkedButton"><span>&#10004;</span></button>-->
+            <!--<button type="button" class="itemButton" id="clearButton"><span>&#10005;</span></button>-->
             <ul class="to-do" id="todo-list"> 
             </ul>
         </p>
