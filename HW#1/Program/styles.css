@@ -1,5 +1,7 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
 h1, .menu {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
 }
 h2 {
@@ -16,25 +18,46 @@ body {
     height: 100vh;
 }
 .menu {
-    background-color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     width: 80%;
-    border-radius: 3px;
+    border-radius: 10px;
     max-width: 1200px;
     margin: auto;
     box-shadow: 2px 2px 20px rgb(59, 105, 124);
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 input {
-    border: solid rgb(0, 0, 0) 1px;
-    border-radius: 2px;;
-    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    width: 85%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    background: rgba(106, 134, 139, 0.219);
+    color: rgba(36, 35, 35, 0.966);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+input:focus {
+    background: rgba(5, 121, 141, 0.219);
+    color: rgb(0, 0, 0);
+}
+input:hover {
+    background: rgba(5, 121, 141, 0.219);
+    cursor: pointer;
+    transition: transform 0.05s ease-in-out;
 }
 .button {
     border: rgb(128, 157, 194) 3px;
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: #acc8e2;
     color: #000000;
     font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 120px;
     height: 40px;
     transition: all 0.5s;
@@ -65,12 +88,15 @@ input {
     right: 0;
   }
 .to-do {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: medium;
     background-color: rgb(220, 240, 245);
     border-radius: 4px;
     margin: 20px;
     padding-left: 10px;
+}
+.to-do li {
+    transition: all 0.1s ease-in-out;
+    animation: slideIn 0.1s forwards;
 }
 .buttonInList {
     border: none;
@@ -91,7 +117,7 @@ input {
     text-wrap: wrap;
     overflow: hidden;
 }
-.crosed {
+.crossed {
     text-decoration: line-through;
     max-width: fit-content;
     margin-right: 5px;
@@ -107,4 +133,14 @@ input {
     margin-right: 5px;
     text-wrap: wrap;
     word-break: break-all;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
 }

@@ -16,22 +16,24 @@ emptyButton.addEventListener("click", emptyList); //neveike, tada sutvarkiau kom
 function addTask() {
   const itemText = input.value; //itemText priskiriamas - ivestas task
   if (itemText == ""){
-    alert("No value!"); //patikrina ar ivestis ne tuscia
+    alert("No value!"); //checks if input is not empty
     return;
   }
-  newToDoItem(itemText); //kreipiasi i funkcija ir duoda ivesties texta
+  newToDoItem(itemText); //sends input to function to add it to the list
 }
 
 /**
  * Creates new to do item in ul list 
  */
-function newToDoItem(itemText) {
+function newToDoItem(itemText, isCrossed = false) {
   const toDoItem = document.createElement("li"); //toDOItem bus li elementas
   toDoItem.className = "toDoItem";
+  
   const p = document.createElement("span");
   p.className = ("pText");
+  p.textContent = itemText; //li elementui priskiria ivesties teksta
 
-  let check = document.createElement("BUTTON"); //KAIP PADARYT ITEMA SU MYGTUKAIS???
+  let check = document.createElement("BUTTON"); //
   check.className = "buttonInList";
   check.innerHTML = "&#9989;";  // Shows the checkmark symbol ✔
   check.id = "check-button";
@@ -49,12 +51,17 @@ function newToDoItem(itemText) {
   
   const container = document.createElement("div");
   container.className = "container";
-  toDoItem.appendChild(p);
+
   container.appendChild(check);
   container.appendChild(remove);
-  p.textContent=itemText; //li elementui priskiria ivesties teksta
+  toDoItem.appendChild(p);
   toDoItem.appendChild(container);
   toDoList.appendChild(toDoItem); //i lista iterpia ivesties teksta kaip li elementa
+  
+  if (isCrossed) {
+    p.classList.add("crossed");
+  }
+  
   input.value="";
   saveList();
 }
@@ -69,7 +76,6 @@ function enterPress (event) {
   addTask();
 }
 
-//NEW FUNCTIONS
 /**
  * Empties the while list of todo items
  */
@@ -78,10 +84,17 @@ function emptyList() {
   saveList();
 }
 
+/**
+ * Toggles items "Crossed" state
+ */
 function toggleToDoItemState(item) {
-  item.classList.toggle("crosed");
+  item.classList.toggle("crossed");
+  saveList();
 }
 
+/**
+ * Removes one item
+ */
 function removeItem(element) {
   element.remove();
   saveList();
@@ -92,10 +105,12 @@ function removeItem(element) {
  */
 function saveList() {
   var toDos = [];
+  const spanElements = document.querySelectorAll('.toDoItem .pText');
 
-  for (var i = 0; i < toDoList.children.length; i++) {
-    var toDo = toDoList.children.item(i);
-    toDos.push(toDo.innerText);
+  for (var i = 0; i < spanElements.length; i++) {
+    //var toDo = toDoList.children.item(i);
+    var isCrossed = spanElements[i].classList.contains("crossed");
+    toDos.push({ text: spanElements[i].innerText, crossed: isCrossed });
 }
   localStorage.setItem("toDos", JSON.stringify(toDos));
 }
@@ -104,30 +119,9 @@ function saveList() {
  * Loads list from a memory
  */
 function onLoad() {
-  if (localStorage.getItem("toDos") != null) {
-      var toDos = JSON.parse(localStorage.getItem("toDos"));
+  var storedToDos = JSON.parse(localStorage.getItem("toDos")) || [];
 
-      for (var i = 0; i < toDos.length; i++) {
-          var toDo = toDos[i];
-          newToDoItem(toDo);
-      }
+  for (var i = 0; i < storedToDos.length; i++) {
+    newToDoItem(storedToDos[i].text, storedToDos[i].crossed);
   }
-}
-
-
-
-function toggleTask(id, pEl, button) {
-
-}
-
-function updateTask(id, completed) {
-//pakeist completed statusa local storage
-}
-
-function removeTask(id, toDoItem) {
-
-}
-
-function getLocalStorageItems() {
-
 }
