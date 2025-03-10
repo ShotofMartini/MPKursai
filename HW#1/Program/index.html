@@ -11,7 +11,7 @@
     <div class="menu">
         <h1>NOTEPAD</h1>
         <p>
-          <input type="text" placeholder="Add new task..." id="task" name="task">
+          <input type="text" placeholder="Add new task..." onfocus="this.placeholder=''" onblur="this.placeholder='Add new task...'" id="task" name="task">
           <br>
           <button type="button" class="button" id="add-button"><span>Add to list</span></button>
           <button type="button" class="button" id="empty-button"><span>Empty list</span></button>

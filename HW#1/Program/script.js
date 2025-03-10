@@ -11,10 +11,10 @@ document.addEventListener("keypress", enterPress);
 emptyButton.addEventListener("click", emptyList); //neveike, tada sutvarkiau komentarus ir perdeliojau ir volia veikia
 
 /**
- * Checks if the input is valid and adds a new task to the list
+ * Checks if the input is valid and calls "newToDoItem" function
  */
 function addTask() {
-  const itemText = input.value; //itemText priskiriamas - ivestas task
+  const itemText = input.value; //input value is assign to itemText
   if (itemText == ""){
     alert("No value!"); //checks if input is not empty
     return;
@@ -26,14 +26,14 @@ function addTask() {
  * Creates new to do item in ul list 
  */
 function newToDoItem(itemText, isCrossed = false) {
-  const toDoItem = document.createElement("li"); //toDOItem bus li elementas
+  const toDoItem = document.createElement("li"); //makes toDOItem "li" element
   toDoItem.className = "toDoItem";
   
-  const p = document.createElement("span");
+  const p = document.createElement("span"); //toDoItems text part
   p.className = ("pText");
-  p.textContent = itemText; //li elementui priskiria ivesties teksta
+  p.textContent = itemText; //assign input value to "p" aprt
 
-  let check = document.createElement("BUTTON"); //
+  let check = document.createElement("BUTTON"); //creates "check" button in the item
   check.className = "buttonInList";
   check.innerHTML = "&#9989;";  // Shows the checkmark symbol ✔
   check.id = "check-button";
@@ -41,15 +41,15 @@ function newToDoItem(itemText, isCrossed = false) {
     toggleToDoItemState(p);
   });
 
-  let remove = document.createElement('BUTTON');
-  remove.innerHTML = "&#10060;";
+  let remove = document.createElement('BUTTON');  //creates r"remove" button in item
   remove.className = "buttonInList";
+  remove.innerHTML = "&#10060;";  // Shows the checkmark symbol ✔
   remove.id = "remove-button";
   remove.addEventListener("click", function removeItemInside() {
     removeItem(toDoItem);
   });
   
-  const container = document.createElement("div");
+  const container = document.createElement("div");  //creates container for the buttons
   container.className = "container";
 
   container.appendChild(check);
@@ -108,7 +108,6 @@ function saveList() {
   const spanElements = document.querySelectorAll('.toDoItem .pText');
 
   for (var i = 0; i < spanElements.length; i++) {
-    //var toDo = toDoList.children.item(i);
     var isCrossed = spanElements[i].classList.contains("crossed");
     toDos.push({ text: spanElements[i].innerText, crossed: isCrossed });
 }
