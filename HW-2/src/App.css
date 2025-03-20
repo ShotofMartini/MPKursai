@@ -40,3 +40,59 @@
 .read-the-docs {
   color: #888;
 }
+
+.nav-links {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  display: inline;
+  position: relative;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 1px;
+  transition:
+    color 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 2%;
+  background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+.web-logo {
+  width: 130px;
+  height: auto;
+}
+
+.navbar {
+  position: fixed; /* Keeps it at the top */
+  top: 10px;
+  left: 0;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

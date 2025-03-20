@@ -8,7 +8,7 @@ const toDoList = document.getElementById("todo-list");
 document.addEventListener("DOMContentLoaded", onLoad);
 addButton.addEventListener("click", addTask);
 document.addEventListener("keypress", enterPress);
-emptyButton.addEventListener("click", emptyList); //neveike, tada sutvarkiau komentarus ir perdeliojau ir volia veikia
+emptyButton.addEventListener("click", emptyList); 
 
 /**
  * Checks if the input is valid and calls "newToDoItem" function
@@ -31,11 +31,11 @@ function newToDoItem(itemText, isCrossed = false) {
   
   const p = document.createElement("span"); //toDoItems text part
   p.className = ("pText");
-  p.textContent = itemText; //assign input value to "p" aprt
+  p.textContent = itemText; //assign input value to "p" part
 
   let check = document.createElement("BUTTON"); //creates "check" button in the item
   check.className = "buttonInList";
-  check.innerHTML = "&#9989;";  // Shows the checkmark symbol ✔
+  check.innerHTML = "&#9989;";  // Shows the check-mark symbol ✔
   check.id = "check-button";
   check.addEventListener("click", function checkInside() {
     toggleToDoItemState(p);
@@ -43,7 +43,7 @@ function newToDoItem(itemText, isCrossed = false) {
 
   let remove = document.createElement('BUTTON');  //creates r"remove" button in item
   remove.className = "buttonInList";
-  remove.innerHTML = "&#10060;";  // Shows the checkmark symbol ✔
+  remove.innerHTML = "&#10060;";  // Shows the check-mark symbol ✔
   remove.id = "remove-button";
   remove.addEventListener("click", function removeItemInside() {
     removeItem(toDoItem);
@@ -56,7 +56,7 @@ function newToDoItem(itemText, isCrossed = false) {
   container.appendChild(remove);
   toDoItem.appendChild(p);
   toDoItem.appendChild(container);
-  toDoList.appendChild(toDoItem); //i lista iterpia ivesties teksta kaip li elementa
+  toDoList.appendChild(toDoItem); //adds input text to the list as li element
   
   if (isCrossed) {
     p.classList.add("crossed");
@@ -67,7 +67,7 @@ function newToDoItem(itemText, isCrossed = false) {
 }
 
 /**
- * ccepts a keyboard event and adds a task if enter is pressed
+ * accepts a keyboard event and adds a task if enter is pressed
  */
 function enterPress (event) {
   if (event.code != "Enter"){
