@@ -1,11 +1,14 @@
 import React from "react";
+import RocketInfo from "../components/RocketInfo";
 
-const FalconHeavy = () => {
+function FalconHeavy({ rocket }) {
+  if (!rocket) return <p>Loading Falcon 9 data...</p>;
+
   return (
     <div>
-      <h1>Falcon Heavy page</h1>
+      <RocketInfo rocket={rocket} />
     </div>
   );
-};
+}
 
-export default FalconHeavy
+export default FalconHeavy;

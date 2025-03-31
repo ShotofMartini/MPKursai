@@ -1,8 +1,8 @@
 import React from "react";
 import RocketInfo from "../components/RocketInfo";
 
-function Falcon9({ rocket }) {
-  if (!rocket) return <p>Loading Falcon 9 data...</p>;
+function Falcon1({ rocket }) {
+  if (!rocket) return <p>Loading Falcon 1 data...</p>;
 
   return (
     <div>
@@ -11,4 +11,4 @@ function Falcon9({ rocket }) {
   );
 }
 
-export default Falcon9;
+export default Falcon1;

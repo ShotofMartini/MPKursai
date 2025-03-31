@@ -1,11 +1,17 @@
 import React from "react";
+import RocketInfo from "../components/RocketInfo";
+//import EngineInfo from "../components/RocketInfo";
 
-const Starship = () => {
+function Starship({ rocket }) {
+  if (!rocket) return <p>Loading Falcon 9 data...</p>;
+  //if (!engine) return <p>Loading engine data...</p>;
+
   return (
     <div>
-      <h1>Starship page</h1>
+      <RocketInfo rocket={rocket} />
+      {/*<EngineInfo engine={engine} />*/}
     </div>
   );
-};
+}
 
-export default Starship
+export default Starship;

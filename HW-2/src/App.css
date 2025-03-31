@@ -6,10 +6,12 @@
 }
 
 .navbar {
-  position: fixed; /* Keeps it at the top */
-  top: 10px;
-  left: 0;
+  position: fixed; 
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
   padding: 15px 8%;
+  padding-left: 20px;
   align-items: center;
   max-width: 800px;
   min-width: 100px;
@@ -36,11 +38,6 @@
   color: white;
   font-size: 18px;
   padding: 10px 1px;
-  transition:
-    color 0.3s ease-in-out,
-    background 0.3s ease-in-out;
-  position: relative;
-  display: inline-block;
 }
 
 .nav-item a::after {
@@ -54,11 +51,44 @@
   transition: width 0.3s ease-in-out;
 }
 
-.nav-item a:hover::after {
+.nav-item a:hover::after,
+.nav-item a:active::after {
   width: 100%;
 }
 
 .web-logo {
-  width: 130px;
+  width: 150px;
   height: auto;
+}
+
+/* Mobile Navigation (Hamburger Menu) */
+.hamburger {
+  display: none; /* Hide by default */
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive Design: Adjust for smaller screens */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none; /* Hide nav links on small screens */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Below navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .nav-links.open {
+    display: flex; /* Show menu when open */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon */
+  }
 }
