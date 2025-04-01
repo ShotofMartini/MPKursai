@@ -22,17 +22,17 @@ function Navbar() {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/falcon-1" aria-label="Falcon 1 vehicle page">
+          <Link to="/falcon1" aria-label="Falcon 1 vehicle page">
             Falcon 1
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/falcon-9" aria-label="Falcon 9 vehicle page">
+          <Link to="/falcon9" aria-label="Falcon 9 vehicle page">
             Falcon 9
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/falcon-heavy" aria-label="Falcon Heavy vehicle page">
+          <Link to="/falconheavy" aria-label="Falcon Heavy vehicle page">
             Falcon Heavy
           </Link>
         </li>
