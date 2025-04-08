@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Logo from "../assets/space_x_logo.jpg";
+import Logo from "../assets/space_x_logo.png";
 import { Link } from "react-router-dom";
+import App from "../App";
 
-function Navbar() {
+function Navbar({ rockets }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -21,26 +22,14 @@ function Navbar() {
             Home
           </Link>
         </li>
-        <li className="nav-item">
-          <Link to="/falcon1" aria-label="Falcon 1 vehicle page">
-            Falcon 1
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/falcon9" aria-label="Falcon 9 vehicle page">
-            Falcon 9
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/falconheavy" aria-label="Falcon Heavy vehicle page">
-            Falcon Heavy
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/starship" aria-label="Starship vehicle page">
-            Starship
-          </Link>
-        </li>
+
+        {rockets.map(rocket => (
+          <li key={rocket.rocket_id} className="nav-item">
+            <Link to={`/${rocket.rocket_id}`} aria-label={`${rocket.rocket_name} vehicle page`}>
+              {rocket.rocket_name}
+            </Link>
+          </li>
+        ))}
       </ul>
 
       <div className="hamburger" onClick={toggleMenu}>
